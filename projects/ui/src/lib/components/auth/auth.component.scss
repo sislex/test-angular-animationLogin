@@ -2,116 +2,160 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   background-color: #FF4D58;
   font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
 
-.centered {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: logoOpacity 1s 0s forwards, logoMoveToUpperLeft 1s 1s forwards;
-}
-
-.centered img {
-  width: 650px;
-  animation: logoSize 1s 0.9s forwards;
-}
-
-@keyframes logoOpacity {
-  0% {
-    width: 0;
+@media (min-width: 1025px){
+  .centered {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: logoOpacity 0.5s 0s forwards, logoMoveToUpperLeft 1s 0.5s forwards;
   }
-  100% {
-    opacity: 1;
-  }
-}
 
-@keyframes logoSize {
-  0% {
+  .centered img {
     width: 650px;
+    animation: logoSize 1s 0.4s forwards;
   }
-  100% {
-    width: 300px;
+
+  @keyframes logoOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
-}
 
-@keyframes logoMoveToUpperLeft {
-  0% {
-    transform: translate(0, 0);
+  @keyframes logoSize {
+    0% {
+      width: 650px;
+    }
+    100% {
+      width: 300px;
+    }
   }
-  100% {
-    transform: translate(calc(-50vw + 175px), calc(-50vh + 45px));
+
+  @keyframes logoMoveToUpperLeft {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(calc(-50vw + 175px), calc(-50vh + 45px));
+    }
   }
-}
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+  .brand {
+    font-size: 100px;
+    font-weight: 500;
+    bottom: 103px;
+    display: flex;
+    flex-direction: column;
+  }
 
-.brand {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 100px;
-  font-weight: 500;
-  color: white;
-  left: 20px;
-  bottom: 103px;
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
+  .date {
+    font-size: 50px;
+    bottom: 20px;
+  }
 
-.date {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 50px;
-  font-weight: 0.04;
-  color: white;
-  left: 20px;
-  bottom: 20px;
-}
-
-.brand, .date {
-  position: absolute;
-  color: white;
-  opacity: 0;
-  animation: slideInFromLeft 1s 1.5s forwards;
-}
-
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
+  .brand, .date {
+    position: absolute;
+    z-index: 2;
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1;
+    color: white;
+    left: 20px;
     opacity: 0;
+    animation: slideInFromLeft 1s 1.5s forwards;
   }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
 
-.sport-img {
-  color: white;
-  opacity: 0;
-  animation:  imgMoveToLeft 1s 1.5s forwards;
-  img {
-    height: 101vh;
-    width: auto;
-    clip-path: polygon(43% 0%, 100% 0%, 100% 53%, 87% 100%, 5% 100%);
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
-}
 
-@keyframes imgMoveToLeft {
-  0% {
+  .sport-img {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
     opacity: 0;
-    transform: translate(100vw, 0vh);
+    clip-path: polygon(55% 0%, 100% 0%, 100% 100%, 27% 100%);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-image: url("../../../../../../src/assets/img/sport-2.png");
+    animation: imgMoveToLeft 1s 1.5s forwards;
+    background-color: #c3d4d6;
   }
-  100% {
-    transform: translate(18vw, 0vh);
-    opacity: 1;
+
+  @keyframes imgMoveToLeft {
+    0% {
+      opacity: 0;
+      transform: translate(200%, 0);
+    }
+    100% {
+      transform: translate(0%, 0);
+      opacity: 1;
+    }
   }
 }
 
+/* Медиазапрос для экранов телефонов */
+@media (max-width: 1024px) {
+  :host {
+    background-image: url("../../../../../../src/assets/img/mobile-background.jpg");
+    background-size: cover;
+  }
 
+  .brand, .date, .sport-img {
+    display: none;
+    animation: none;
+  }
 
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: logoOpacity 0.5s 0s forwards, logoMoveToUpperCenter 1s 0.4s forwards;
+    max-width: 80%;
+  }
 
+  .centered img {
+    width: 400px;
+    max-width: 100%;
+    line-height: 1;
+  }
 
+  @keyframes logoMoveToUpperCenter {
+    0% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(0, -35vh);
+      opacity: 1;
+    }
+  }
+
+  @keyframes logoOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

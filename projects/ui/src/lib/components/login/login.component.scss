@@ -1,25 +1,23 @@
 .container {
-  position: fixed;
-  height: 50vh;
-  width: 300px;
+  height: 50%;
+  width: 100%;
+  max-width: 300px;
   padding: 16px;
   background-color: white;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  margin-top: 100px;
-  //opacity: 0;
+  opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  //animation: formOpacity 4s 2.5s forwards;
+  animation: formOpacity 3s 1.5s forwards;
 }
 
 input[type=text], input[type=password] {
-  width: 90%;
-  padding: 15px;
+  width: 100%;
   margin: 5px 0 22px 0;
+  padding: 15px 5px 15px 25px;
   /*display: inline-block;*/
   border: none;
   background: #f1f1f1;
@@ -48,4 +46,69 @@ input[type=text]:focus, input[type=password]:focus {
 
 .btn:hover {
   opacity:1;
+}
+
+@keyframes formOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    height: 50%;
+    width: 100%;
+    max-width: 300px;
+    padding: 16px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: formOpacity 3s 1.2s forwards;
+  }
+
+  input[type=text], input[type=password] {
+    width: 100%;
+    margin: 5px 0 22px 0;
+    padding: 15px 5px 15px 25px;
+    /*display: inline-block;*/
+    border: none;
+    background: #f1f1f1;
+  }
+
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  .field {
+    align-self: flex-start;
+  }
+
+  .btn {
+    background-color: #FF4D58;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  @keyframes formOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }

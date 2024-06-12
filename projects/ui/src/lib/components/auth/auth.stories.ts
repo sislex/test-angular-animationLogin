@@ -10,7 +10,7 @@ const meta: Meta<AuthComponent> = {
       imports: [],
     }),
     componentWrapperDecorator(
-      (story) => `<div>${story}</div>`
+      (story) => `<div style="height: 500px; position: relative">${story}</div>`
     ),
   ],
   render: (args: any) => ({

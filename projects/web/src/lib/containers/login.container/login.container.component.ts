@@ -19,7 +19,7 @@ export class LoginContainerComponent {
 
   events($event: any) {
     console.log('container', $event.event)
-    if ($event.event = 'singIn') {
+    if ($event.event = 'signIn') {
       this.router.navigate(['/dashboard']);
     }
   }

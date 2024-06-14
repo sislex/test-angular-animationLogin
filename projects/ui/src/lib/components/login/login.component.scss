@@ -1,18 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 .container {
   padding: 16px;
   background-color: white;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  animation: formOpacity 3s 1.5s forwards;
 }
+
 
 input[type=text], input[type=password] {
   width: 100%;
   margin: 5px 0 22px 0;
   padding: 15px 5px 15px 25px;
-  /*display: inline-block;*/
   border: none;
   background: #f1f1f1;
   box-sizing: border-box;
@@ -27,8 +27,13 @@ input[type=text]:focus, input[type=password]:focus {
   align-self: flex-start;
 }
 
+label {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
 .btn {
   background-color: #FF4D58;
+  font-family: 'Space Grotesk', sans-serif;
   color: white;
   padding: 16px 20px;
   border: none;
@@ -36,17 +41,4 @@ input[type=text]:focus, input[type=password]:focus {
   width: 100%;
 }
 
-@keyframes formOpacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
-@media (max-width: 1024px) {
-  .container {
-    animation: formOpacity 3s 1.2s forwards;
-  }
-}

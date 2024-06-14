@@ -13,9 +13,8 @@ export class LoginComponent {
   @Output() emitter = new EventEmitter();
 
   singIn() {
-    console.log('component')
     this.emitter.emit({
-      event: 'singIn'
+      event: 'signIn'
     });
   }
 }

@@ -1,23 +1,33 @@
-:host {
+div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-color: #FF4D58;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+}
 
-  div {
-    color: white;
-    font-weight: bold;
-    font-size: 220px;
-    animation: helloOpacity 1.5s 0s forwards;
+span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 20vw;
+  font-family: 'Space Grotesk', sans-serif;
+  transform: translate(-50%, -50%);
+  animation: helloOpacity 1.5s 0s forwards;
+}
+
+@keyframes helloOpacity {
+  0% {
+    opacity: 0;
   }
+  100% {
+    opacity: 1;
+  }
+}
 
-  @keyframes helloOpacity {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+@media (max-width: 1024px) {
+  span {
+    font-size: 30vw;
   }
 }

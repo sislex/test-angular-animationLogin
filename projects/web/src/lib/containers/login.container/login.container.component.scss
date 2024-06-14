@@ -1,0 +1,19 @@
+login {
+  opacity: 0;
+  animation: formOpacity 3s 1.5s forwards;
+}
+
+@keyframes formOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .login {
+    animation: formOpacity 3s 1.2s forwards;
+  }
+}
